@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://b3gps1ws8n6pg"]
+
+[ext_resource type="Script" uid="uid://blgn4v4j0ykaq" path="res://scripts/upgrade_data.gd" id="1_m5ih7"]
+
+[resource]
+script = ExtResource("1_m5ih7")
+upgrade_id = &"pipe_upgrade"
+display_name = "Pipe Upgrade"
+upgrade_amount = 0.1
+starting_price = 10
+price_multiplier = 1.2
+max_purchases = 9
+metadata/_custom_type_script = "uid://blgn4v4j0ykaq"

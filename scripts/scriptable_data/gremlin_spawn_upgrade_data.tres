@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://b5qaidgr8y2sr"]
+
+[ext_resource type="Script" uid="uid://blgn4v4j0ykaq" path="res://scripts/upgrade_data.gd" id="1_dgnsu"]
+
+[resource]
+script = ExtResource("1_dgnsu")
+upgrade_id = &"gremlin_spawn_speed"
+display_name = "Spawn Speed"
+starting_price = 1
+price_multiplier = 1.2
+max_purchases = 8
+metadata/_custom_type_script = "uid://blgn4v4j0ykaq"

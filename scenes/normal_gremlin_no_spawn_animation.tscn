@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dvggi7t6qyecm"]
+
+[ext_resource type="Script" uid="uid://ccdllfw76np2l" path="res://scripts/normal_gremlin.gd" id="1_8l033"]
+[ext_resource type="PackedScene" uid="uid://djspt54afb3vl" path="res://meshes/M_Gremlin.glb" id="2_4idbw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_km8ha"]
+radius = 0.2
+height = 0.80742186
+
+[node name="NormalGremlin" type="CharacterBody3D" unique_id=115928218 groups=["normal_gremlin"]]
+script = ExtResource("1_8l033")
+
+[node name="M_Gremlin" parent="." unique_id=483770859 instance=ExtResource("2_4idbw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="Skeleton3D" parent="M_Gremlin/Gremlin Armature" parent_id_path=PackedInt32Array(483770859, 1977755546) index="0" unique_id=284088861]
+bones/0/position = Vector3(-0.0076939967, 0.18420576, 0.0036081318)
+bones/0/rotation = Quaternion(-0.012611575, -0.0042470824, 0.017164089, 0.9997642)
+bones/1/rotation = Quaternion(-0.011689449, 0.007448612, -0.027145002, 0.9995354)
+bones/2/rotation = Quaternion(-0.032294158, -0.0044878507, 0.009956613, 0.99941874)
+bones/3/rotation = Quaternion(-0.00498243, -8.6001734e-11, -1.2002068e-09, 0.9999876)
+bones/3/scale = Vector3(1, 0.9999998, 0.9999999)
+bones/4/position = Vector3(0.14863677, 0.2783822, 0.00013952554)
+bones/4/rotation = Quaternion(-0.028102366, -0.01684789, -0.42655465, 0.90386814)
+bones/5/rotation = Quaternion(0.011001714, 0.00012721101, 0.027343877, 0.99956554)
+bones/6/position = Vector3(-0.14863688, 0.2783824, 0.00013945646)
+bones/6/rotation = Quaternion(0.020205362, 0.012380092, 0.48659548, 0.873306)
+bones/7/rotation = Quaternion(0.011001714, -0.00012721212, -0.027343797, 0.9995656)
+bones/8/position = Vector3(0.10023856, 0.21722318, 0.13466275)
+bones/8/rotation = Quaternion(0.51725185, 0.73814857, 0.39292532, 0.18220069)
+bones/8/scale = Vector3(1, 1.0000004, 1)
+bones/9/position = Vector3(3.91163e-08, 0.088336185, 1.4902113e-08)
+bones/9/rotation = Quaternion(1.8370338e-06, 9.799376e-06, -2.8586946e-06, 1)
+bones/9/scale = Vector3(0.99999994, 0.99999994, 1)
+bones/10/position = Vector3(-0.10315426, 0.2160903, 0.13548851)
+bones/10/rotation = Quaternion(-0.48288488, 0.7652037, 0.38997692, -0.17089027)
+bones/10/scale = Vector3(0.9999998, 1, 0.99999994)
+bones/11/position = Vector3(3.178149e-08, 0.088336155, -1.4900481e-08)
+bones/11/rotation = Quaternion(1.8235293e-06, -9.803334e-06, 2.8449572e-06, 1)
+bones/12/rotation = Quaternion(0.80273306, 8.3380386e-05, 0.0013265208, 0.5963372)
+bones/13/rotation = Quaternion(-0.37025994, -0.5698353, -0.4342725, 0.59127223)
+bones/14/rotation = Quaternion(0.16798796, -0.10721887, -0.05916646, 0.97815317)
+bones/15/rotation = Quaternion(2.0748352e-05, -0.00026180735, -0.077113345, 0.99702233)
+bones/16/rotation = Quaternion(0.16726074, 0.08018723, -0.058312386, 0.9809147)
+bones/17/rotation = Quaternion(-0.5426892, 0.44189975, 0.55272627, 0.45244527)
+bones/18/rotation = Quaternion(-0.076774746, -0.019519417, 0.018438583, 0.9966869)
+bones/19/rotation = Quaternion(-2.3228053e-05, -0.0003024933, 0.077113286, 0.9970223)
+bones/20/rotation = Quaternion(0.09484307, 0.04752373, -0.11749801, 0.9873908)
+bones/30/position = Vector3(0.05183461, 0.0025586844, -0.0018035889)
+bones/30/rotation = Quaternion(0.68393177, 0.48347804, 0.43154782, 0.33504143)
+bones/31/rotation = Quaternion(6.6051996e-07, -6.2504614e-07, 0.5325632, 0.84639037)
+bones/32/rotation = Quaternion(-0.4515546, -0.47977987, 0.6330462, -0.4064017)
+bones/33/rotation = Quaternion(0.0030092446, 0.99971914, 0.02318102, 0.00391248)
+bones/34/position = Vector3(-0.06303967, 0.008822162, -0.00016336769)
+bones/34/rotation = Quaternion(0.84272844, -0.15108052, -0.48287737, -0.18388285)
+bones/35/rotation = Quaternion(-4.766948e-08, 3.8566743e-08, -0.5662394, 0.8242409)
+bones/36/rotation = Quaternion(0.4574514, -0.4184083, 0.7328528, 0.28035605)
+bones/37/rotation = Quaternion(-0.0030083754, 0.99971914, 0.02318085, -0.003912798)
+
+[node name="AnimationPlayer" parent="M_Gremlin" index="1" unique_id=1847104531]
+autoplay = &"Gremlin_InAir"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1306070602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0037109554, 0)
+shape = SubResource("CapsuleShape3D_km8ha")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1460042268]
+
+[connection signal="animation_finished" from="M_Gremlin/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="M_Gremlin"]

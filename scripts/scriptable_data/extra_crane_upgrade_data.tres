@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bn38p44loy1mp"]
+
+[ext_resource type="Script" uid="uid://blgn4v4j0ykaq" path="res://scripts/upgrade_data.gd" id="1_kf40y"]
+
+[resource]
+script = ExtResource("1_kf40y")
+upgrade_id = &"extra_crane"
+display_name = "Extra Crane"
+starting_price = 40
+max_purchases = 2
+metadata/_custom_type_script = "uid://blgn4v4j0ykaq"

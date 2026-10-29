@@ -1,0 +1,926 @@
+[gd_scene format=4 uid="uid://86t0fwyg3nme"]
+
+[ext_resource type="Script" uid="uid://y80n3a42dp4a" path="res://scripts/game_manager.gd" id="1_18cnu"]
+[ext_resource type="PackedScene" uid="uid://c1fqay1ombw7s" path="res://meshes/M_Gremlinbox.glb" id="1_de004"]
+[ext_resource type="Material" uid="uid://7pqfd5frahgg" path="res://materials/development/development_graygrid.material" id="1_jwmjt"]
+[ext_resource type="Script" uid="uid://b6yqj8kmcppg1" path="res://scripts/gremlin_drag_controller.gd" id="1_p2xlm"]
+[ext_resource type="Script" uid="uid://d30cyadl3qihm" path="res://scripts/grabbing_crane.gd" id="1_u6tae"]
+[ext_resource type="Script" uid="uid://blgn4v4j0ykaq" path="res://scripts/upgrade_data.gd" id="2_11hot"]
+[ext_resource type="Material" uid="uid://dek2h7yqmqi8p" path="res://materials/development/development_orange.material" id="2_71rd0"]
+[ext_resource type="Material" uid="uid://dc03fwcd2ctvf" path="res://materials/development/development_gray.material" id="3_de004"]
+[ext_resource type="Script" uid="uid://bv4jal4ucqhkn" path="res://scripts/game_ui.gd" id="3_w6t46"]
+[ext_resource type="Texture2D" uid="uid://cnioi5g6drg2d" path="res://sprites/UI_Arrow.png" id="4_53efp"]
+[ext_resource type="Resource" uid="uid://bardvnmm5jejq" path="res://scripts/scriptable_data/crane_upgrade_data.tres" id="4_rjr6h"]
+[ext_resource type="Material" uid="uid://co2ul2oul8f04" path="res://materials/development/development_yellow.material" id="4_u6tae"]
+[ext_resource type="PackedScene" uid="uid://dk1ifanbkkcg2" path="res://scenes/running_gremlin.tscn" id="4_vx5f2"]
+[ext_resource type="PackedScene" uid="uid://bmh2x1a3aualh" path="res://scenes/upgrade_button.tscn" id="5_1rswb"]
+[ext_resource type="Resource" uid="uid://b5qaidgr8y2sr" path="res://scripts/scriptable_data/gremlin_spawn_upgrade_data.tres" id="5_d2wwq"]
+[ext_resource type="AudioStream" uid="uid://cxaoylv1gs6gl" path="res://audio/Purchase.wav" id="5_ohciv"]
+[ext_resource type="Script" uid="uid://cwyvcatxp5fug" path="res://scripts/normal_gremlin_spawner.gd" id="6_0bo8v"]
+[ext_resource type="Resource" uid="uid://ct1pygytwjvb7" path="res://scripts/scriptable_data/conveyor_upgrade_data.tres" id="6_5vscl"]
+[ext_resource type="Script" uid="uid://dys7qc7s2xx26" path="res://scripts/conveyor_path_2.gd" id="6_mhofs"]
+[ext_resource type="Script" uid="uid://bgee2we3uyx8n" path="res://scripts/result_screen.gd" id="6_pi2rr"]
+[ext_resource type="PackedScene" uid="uid://bm4f15bj3qs5u" path="res://scenes/boxed_gremlin.tscn" id="7_eg5jr"]
+[ext_resource type="Resource" uid="uid://dambxs4ybiiba" path="res://scripts/scriptable_data/cartspeed_upgrade_data.tres" id="7_lbac8"]
+[ext_resource type="PackedScene" uid="uid://c62j4xcqtljya" path="res://scenes/normal_gremlin.tscn" id="7_y0a4c"]
+[ext_resource type="Script" uid="uid://b7f2ksqgvygbw" path="res://scripts/process_timers.gd" id="8_hndle"]
+[ext_resource type="Resource" uid="uid://b3gps1ws8n6pg" path="res://scripts/scriptable_data/pipe_upgrade_data.tres" id="8_qhqxk"]
+[ext_resource type="Resource" uid="uid://bn38p44loy1mp" path="res://scripts/scriptable_data/extra_crane_upgrade_data.tres" id="9_3sdqb"]
+[ext_resource type="Script" uid="uid://b815kopv8vnhc" path="res://scripts/shipping_cart.gd" id="11_53efp"]
+[ext_resource type="Script" uid="uid://lkw5uoum4qs3" path="res://scripts/conveyor_path_1.gd" id="11_eqh8l"]
+[ext_resource type="PackedScene" uid="uid://d1v7wtfw0uu5m" path="res://scenes/downgrade_button.tscn" id="11_fwbgv"]
+[ext_resource type="PackedScene" uid="uid://budut7viwm7wx" path="res://scenes/gremlin_hopper.tscn" id="11_vg1nb"]
+[ext_resource type="PackedScene" uid="uid://b2nx81dgufr71" path="res://scenes/stunned_gremlin.tscn" id="13_4dxg8"]
+[ext_resource type="Script" uid="uid://tjrmp4qs8mw6" path="res://scripts/volume_slider.gd" id="13_gd5yr"]
+[ext_resource type="Script" uid="uid://b7fgvv4q5kygb" path="res://scripts/gremlin_return_area.gd" id="13_vx5f2"]
+[ext_resource type="PackedScene" uid="uid://dvggi7t6qyecm" path="res://scenes/normal_gremlin_no_spawn_animation.tscn" id="15_5o75h"]
+[ext_resource type="AudioStream" uid="uid://cdpwaje5ynjun" path="res://audio/Herbert Chappell - The Gonk (Dawn of the Dead 1978).mp3" id="15_kr2og"]
+[ext_resource type="PackedScene" uid="uid://dndbmeeanppu8" path="res://meshes/M_FactoryPipe.glb" id="16_eum01"]
+[ext_resource type="Script" uid="uid://crvstvww5lxh8" path="res://scripts/pipe_logic.gd" id="16_ltfle"]
+[ext_resource type="Script" uid="uid://50vvhjdukdss" path="res://scripts/crane_manager.gd" id="20_fr5oa"]
+[ext_resource type="Script" uid="uid://blovxuhk47awh" path="res://scripts/box_cannon.gd" id="20_xq1g1"]
+[ext_resource type="PackedScene" uid="uid://c1dvqavtufbun" path="res://scenes/boxed_gremlin_physics.tscn" id="21_17i2p"]
+[ext_resource type="Script" uid="uid://waprsa3xhppa" path="res://scripts/box_break_area.gd" id="22_w6t46"]
+[ext_resource type="AudioStream" uid="uid://vu2nt6isecj0" path="res://audio/metal_box_break1.wav" id="28_o8yas"]
+[ext_resource type="Shader" uid="uid://uiu45gr23gjr" path="res://shaders/outline_strobe.gdshader" id="42_gd5yr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_km8ha"]
+font_size = 54
+shadow_size = 2
+shadow_color = Color(7.821247e-08, 0.13000432, 0.18071881, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_km8ha"]
+size = Vector3(3, 0.3, 2.5)
+
+[sub_resource type="Curve3D" id="Curve3D_u6tae"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.5, 0, 0, 0, 0, 0, 0, 4.5, 0, -0.52, 0, 0, 0, 0, 0, 0, 4.5, 0, 1.5),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ionjj"]
+render_priority = 0
+shader = ExtResource("42_gd5yr")
+shader_parameter/outline_color = Color(1, 0.02, 0.02, 1)
+shader_parameter/pulse_speed = 6.0
+shader_parameter/max_opacity = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kr2og"]
+_surfaces = [{
+"aabb": AABB(-0.6246172, -0.28002873, -1.0314726, 1.2494498, 0.9574423, 2.060594),
+"format": 34359742471,
+"index_count": 804,
+"index_data": PackedByteArray("wAACAJoAwACaAMEAwQCaAMIABADAAMEABADBAAMABQAEAAMAwQDCAMMAAwDBAMMAwwDCAJsAAwDDAAAAwwCbAMQAAADDAMQAxACbAMUAAADEAAYAxADFAMYABgDEAMYAxgDFAMcABgDGAAcAxgDHAMgABwDGAMgAyADHAAEABwDIAAgAyAABAMkACADIAMkAyQABAMoACADJAAkAyQDKAMsACQDJAMsAywDKAJwACQDLAAoAywCcAMwACgDLAMwACgDMAAsAzQALAMwAzACcAJ0AzAAMAM0AzACdAM4AzADOAAwAzgCdAA0AzgANAM8ADADOAM8ADADPAA4A0AAPABEA0AARANEAFACoAKcAFACnABUA0gCeAJ8A0gCfANMA1ADWANUA1ADVANcAoADZANgAoADYAKEA2gCqAKkA2gCpANsA3ADeAN0A3ADdAN8A4ADiAOEA4ADhAOMAogDlAOQAogDkABAA5gDoAOcA5gDnAOkA6gDsAOsA6gDrAO0A7gCrABYA7gAWAO8A8ADyAPEA8ADxAPMA9AD2APUA9AD1APcA+ACjAKQA+ACkAPkA+gD8APsA+gD7AP0ApQD/AP4ApQD+AKYAAAECAQEBAAEBAawAEgAEAQMBEgADARMArQAXABgArQAYAK4ABQEGAbMABQGzAEAAQQAGAQUBBgEHAbMAQQA/AAYBBgEIAQcBPwAIAQYBCAGxAAcBPwAJAQgBCAEKAbEACQEKAQgBCgELAbEACQGyAAoBCgEMAQsBsgAMAQoBDAGvAAsBsgA+AAwBDAENAa8APgANAQwBDQEOAa8APgA9AA0BDQEPAQ4BPQAPAQ0BDwGwAA4BPQA8AA8BDwEQAbAAPAAQAQ8BEAERAbAAPAA6ABABEAESAREBEgG0ABEBEAE6ADcAEAE3ABIBOgA7ADcAEgETAbQANwATARIBEwE4ALQANwAUARMBEwEVATgAFAEVARMBFAE5ABUBFgEXARoAFgEaABwAGQAXARYBGQAbABcBGAEfAB4AGAEeABkBHQAYARkBHQAZASAAIQAbARoBIQAaASQAGwEiABoBGwEjACIAJQAnABwBJQAcAR0BHQEcASYAHQEmACgAtQAsAB4BtQAeAR8BHwEeASsAIAG1AB8BHwErACkAKQArACoAIAEfASEBIQEfASkAtgAgASEBIQEpAC0AtgAhASIBIgEhAS0AIwG2ACIBIgEtAC4AIwEiASQBJAEiAS4AJQEjASQBJAEuAC8AJQEkASYBJgEkAS8AtwAlASYBJgEvADAAtwAmAScBJwEmATAAKAG3ACcBJwEwADEAKAEnASkBKQEnATEAKgEoASkBKQExADIAKgEpASsBKwEpATIAKwEyADQAKwE0ACwBuAAqASsBKwEsATUAuAArAS0BNQAtASsBMwC4AC0BMwAtAS4BLgEtATUALgE1ADYAuQAwAS8BuQAvAUIAMAFDAC8BMQEwAbkAMAFEAEMAMQEyATABMgFEADABuwAyATEBMgEzAUQAuwA0ATIBNAEzATIBNQE0AbsANAG6ADMBNQE2ATQBNgG6ADQBRgA2ATUBNgFFALoARgA3ATYBNwFFADYBOAE3AUYANwFHAEUAOAE5ATcBOQFHADcBvAA5ATgBOQFIAEcAvAA6ATkBOgFIADkBOwE6AbwAOgFJAEgAOwE8AToBPAFJADoBvQA8ATsBPAFKAEkASgBLAEkAvQA9ATwBPQFKADwBTAA9Ab0APQE+AUoATAA/AT0BPwE+AT0BPwFNAD4BTgBQAE8ATgBPAFEAUgBUAFMAUgBTAFUAVgBYAFcAVgBXAFkAWgBcAFsAWgBbAF0AXgBgAF8AXgBfAGEAYgBkAGMAYgBjAGUAZgBoAGcAZgBnAGkAagBsAGsAagBrAG0AbgBBAUABbgBAAW8AQAFBAXAAQAFwAHEAcgB0AHMAcgBzAHUAdgBDAUIBdgBCAXkARAF4AHcARAF3AEUBegB8AHsAegB7AH0AfgCAAH8AfgB/AIEAggCEAIMAggCDAIUAhgCIAIcAhgCHAIkAigC/AL4AigC+AIsARgFIAUcBRgFHAUkBSgGMAI0ASgGNAEsBjgCQAI8AjgCPAJEAkgCUAJMAkgCTAJUAlgCYAJcAlgCXAJkA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 332,
+"vertex_data": PackedByteArray("6gYQP8G0Wz6HRHK+DTRvvqaLHz/k9YO/qwAQP2bcir7R24G/p0gbP+LEMjzNzSy+98QPP+1fj74ijWa+wKAQP8jA772Dqby9icHcPvJT1T6W/ka+Ojd0Pr9sCj9oQ52+ucAzPBrdFT+kXJ6+03aBvpdlCT/AixW+ZHPdvp2ryz4IoYa+7sQOv/NdXj72YXC+A1Acv254Er2S4Dm+HgIQv2bcir7R24G/P7sPv3Rljb4W3lu+1fvkPg31aL5MNII/64NHu/pqLT/hXYM/iegQP6HVib7hNII/WgDlvir1aL7NNII//uoQv2PVib6LNII/idjlPpf8a77h24G/qwAQP2bcir7R24G/DTRvvqaLHz/k9YO/FtDlvrbya76L2YG/HgIQv2bcir7R24G/98QPP+1fj74ijWa+idjlPpf8a77h24G/i0nkPsXmdb7AXW2+qwAQP2bcir7R24G/P7sPv3Rljb4W3lu+FtDlvrbya76L2YG/HgIQv2bcir7R24G/TyblvjrVcr4z/mG+/uoQv2PVib6LNII/opPivmoDY74gBxc9jC0Pv1hyhb5cXf88WgDlvir1aL7NNII/iegQP6HVib7hNII/rE7nPpAdaL5uh9Q91fvkPg31aL5MNII/nnASP9XUib53Iss96Mz2PqL8/zuVN1e+SI/kPpYs0b10lgC+i0nkPsXmdb7AXW2+idjlPpf8a77h24G/MvnhPm7eJT4mw5G+01imPm7GpD6pxWq+VMstPj1r1D4W/Ji+91X1u+/j5D5qRZm+VNdjvvAq0z7wER++ApC2vk2wmj6xHpa+FtDlvrbya76L2YG/rJXkvmh1Iz7q55C+OUL4vmrwRb11uV++TyblvjrVcr4z/mG+m+viPqoBPD7Nixw+1fvkPg31aL5MNII/rE7nPpAdaL5uh9Q9keOqPpootD5epzA+SPPHPnpriD7MN5c9bIo2Pj6t5j4KvUI+2uXAPH5v9D7u7qc9AhpJvlVH5T6euUY+Qm74vkGZtruODPs9WgDlvir1aL7NNII/opPivmoDY74gBxc9/uoQv2PVib6LNII/jC0Pv1hyhb5cXf88o1kbv6PhGbypqLM9YjJovvKrCz8avDQ+64NHu/pqLT/hXYM/2QFfPUrnEz+UY6c91eJ9PtI3DD+6OTQ+GnvhPgvF2z4Y3RQ+AAIRP4KebT7+ft89pnsDP0TYnj5VNg89iegQP6HVib7hNII/nnASP9XUib53Iss998QPP+1fj74ijWa+SI/kPpYs0b10lgC+wKAQP8jA772Dqby9i0nkPsXmdb7AXW2+p0gbP+LEMjzNzSy+MvnhPm7eJT4mw5G+6gYQP8G0Wz6HRHK+6Mz2PqL8/zuVN1e+6gYQP8G0Wz6HRHK+01imPm7GpD6pxWq+icHcPvJT1T6W/ka+MvnhPm7eJT4mw5G+icHcPvJT1T6W/ka+VMstPj1r1D4W/Ji+Ojd0Pr9sCj9oQ52+01imPm7GpD6pxWq+Ojd0Pr9sCj9oQ52+91X1u+/j5D5qRZm+ucAzPBrdFT+kXJ6+VMstPj1r1D4W/Ji+ucAzPBrdFT+kXJ6+VNdjvvAq0z7wER++03aBvpdlCT/AixW+91X1u+/j5D5qRZm+03aBvpdlCT/AixW+ApC2vk2wmj6xHpa+ZHPdvp2ryz4IoYa+VNdjvvAq0z7wER++ZHPdvp2ryz4IoYa+rJXkvmh1Iz7q55C+7sQOv/NdXj72YXC+ApC2vk2wmj6xHpa+7sQOv/NdXj72YXC+rJXkvmh1Iz7q55C+A1Acv254Er2S4Dm+OUL4vmrwRb11uV++A1Acv254Er2S4Dm+TyblvjrVcr4z/mG+P7sPv3Rljb4W3lu+OUL4vmrwRb11uV++rE7nPpAdaL5uh9Q9AAIRP4KebT7+ft89m+viPqoBPD7Nixw+nnASP9XUib53Iss9m+viPqoBPD7Nixw+pnsDP0TYnj5VNg89SPPHPnpriD7MN5c9AAIRP4KebT7+ft89keOqPpootD5epzA+1eJ9PtI3DD+6OTQ+bIo2Pj6t5j4KvUI+GnvhPgvF2z4Y3RQ+bIo2Pj6t5j4KvUI+2QFfPUrnEz+UY6c92uXAPH5v9D7u7qc91eJ9PtI3DD+6OTQ+2uXAPH5v9D7u7qc9YjJovvKrCz8avDQ+AhpJvlVH5T6euUY+2QFfPUrnEz+UY6c9AhpJvlVH5T6euUY+YjJovvKrCz8avDQ+Qm74vkGZtruODPs9o1kbv6PhGbypqLM9Qm74vkGZtruODPs9jC0Pv1hyhb5cXf88opPivmoDY74gBxc9o1kbv6PhGbypqLM9pnsDP0TYnj5VNg89keOqPpootD5epzA+SPPHPnpriD7MN5c9GnvhPgvF2z4Y3RQ+SI/kPpYs0b10lgC+p0gbP+LEMjzNzSy+wKAQP8jA772Dqby96Mz2PqL8/zuVN1e+DTIeP7epO7t4MoK/7JXgPoj88j4IQIO/5dsRv0fHhT6dSIK/CTEev0wTOzsmM4K/QJX5PsF2NbsbaII/lzEePyf3PzucWoI/NvevPr/qxj5ys4I/VibfPsCx9j5TWII/iLxAO0/WCz9BuoM/VcStvjsCyT6NsYI/0HHhviMf9D5DR4I/sYn5vm/mRjtzY4I/ojIev8bnNbsQWoI/DTIeP7epO7t4MoK/gY/5PguFPTt/M4K/7JXgPoj88j4IQIO/HeatPvpRyT5oeYK/Yd8+vgSKAT9FKoO/5dsRv0fHhT6dSIK/r4/5vgejOLvYM4K/CTEev0wTOzsmM4K/iLxAO0/WCz9BuoM/NvevPr/qxj5ys4I/VcStvjsCyT6NsYI/8yyvvh0lsj7oTTo+sYn5vm/mRjtzY4I/QJX5PsF2NbsbaII/gY/5PguFPTt/M4K/HeatPvpRyT5oeYK/Yd8+vgSKAT9FKoO/r4/5vgejOLvYM4K/ojIev8bnNbsQWoI/XtnXvlmV1z4KTA4+0HHhviMf9D5DR4I/VibfPsCx9j5TWII/lzEePyf3PzucWoI/XtnXvlmV1z4KTA4+8yyvvh0lsj7oTTo+oX0QP5QHjb43jhK/J+0fPxgGILxQQhS/OnUSP2gmgz5lPYK/81oUP+lqcD58Zxy/pbvkPpFR4T7kmym/owd1PrTjHj/X+oO/LTh8Ps5wFD9BRC+/L91MO8dXLD9LB4S/oZcEPGKCIT+Oui+/a5Ztvg4/FT/nFi+/erDevtEU9T4mOIO/o4zfvqBl5D7BEim/a3ATvyG4dj68xhu/2iULvz9wqj22Efy96uYfv1hLo7rH2xO/QH0QvzIJjb5qjRK/QJX5PsF2NbsbaII/lzEePyf3PzucWoI/CozmPqs6Vz7bP4I/3fYRP2kfhj5UKII/gY/5PguFPTt/M4K/OnUSP2gmgz5lPYK/GHrlPrHDXD48PYK/DTIeP7epO7t4MoK/3fYRP2kfhj5UKII/CozmPqs6Vz7bP4I/GHrlPrHDXD48PYK/OnUSP2gmgz5lPYK/CNg+PpZVAT+iaoM/VibfPsCx9j5TWII/NvevPr/qxj5ys4I/wGRwPqGnID99CoM/HeatPvpRyT5oeYK/owd1PrTjHj/X+oO/SnM5PpscAj9ZAoO/7JXgPoj88j4IQIO/wGRwPqGnID99CoM/CNg+PpZVAT+iaoM/SnM5PpscAj9ZAoO/L91MO8dXLD9LB4S/1w8+u4weDD+UKIO/owd1PrTjHj/X+oO/siw5vh/rAT9laoM/64NHu/pqLT/hXYM/iLxAO0/WCz9BuoM/iU12vg3oHz8y+II/1w8+u4weDD+UKIO/L91MO8dXLD9LB4S/VcStvjsCyT6NsYI/iU12vg3oHz8y+II/siw5vh/rAT9laoM/0HHhviMf9D5DR4I/Yd8+vgSKAT9FKoO/erDevtEU9T4mOIO/NSGwvuENxz5toYK/DTRvvqaLHz/k9YO/xGTlvgZ8XD4vNoI/dYQSv64qgz4DK4I/NSGwvuENxz5toYK/5dsRv0fHhT6dSIK/WKLmvkEpVz4uQ4K/erDevtEU9T4mOIO/dYQSv64qgz4DK4I/xGTlvgZ8XD4vNoI/WKLmvkEpVz4uQ4K/CTEev0wTOzsmM4K/r4/5vgejOLvYM4K/ojIev8bnNbsQWoI/sYn5vm/mRjtzY4I/yL7ivrTxar79mBA/BUb2vkw3rDpVnxE/xGTlvgZ8XD4vNoI/lu7ivuzqTj6YoBU/RqDjvpUAOz42Eu49gausvqgwuz7qbho/siw5vh/rAT9laoM/dCU6vl3i8D5cXB4/BFyZuslgAT9lTSA/CNg+PpZVAT+iaoM/rRY4PjU07z5SUx4/mfarPrwBuD67URo/CozmPqs6Vz7bP4I/mo3iPimgRj7EchU/x/P1PmHW5LuxehE/zJL4Pj4wObwFmgA+fOziPtrzar5umhA/oX0QP5QHjb43jhK/5NzjPgvjbr4S6RK/QH0QvzIJjb5qjRK/48fjvtCXbr7s5BK/yL7ivrTxar79mBA/0I0RvznHi77fkhA/fOziPtrzar5umhA/RqoRP+2+i755kxA/5NzjPgvjbr4S6RK/GvX1PmvygLvziRa/GHrlPrHDXD48PYK/uVHhPtY1QT5hMhy/N8apPlCCsT6WhCO/SnM5PpscAj9ZAoO/nHIyPkLo5T73XSu/1w8+u4weDD+UKIO/43r7uxwT+D7YjSy/C1ZAviMG5D7Qmyy/NSGwvuENxz5toYK/wUavviIWrj7jCiW/WKLmvkEpVz4uQ4K/kE3jvqWyPD4A3Ry/Co3Zvh6qhT179Cy+cT72vqqvRrx6uha/48fjvtCXbr7s5BK/0I0RvznHi77fkhA/UuIfv1nFi7uARw4/dYQSv64qgz4DK4I/vqYTv00Dfj5NaQ8/taINv1bZZz7TNoY91cbgvjqT6D5gSRU/iU12vg3oHz8y+II/5YBvvo3KFj/8rRw/jKW/O5D0Ij96ZCA/wGRwPqGnID99CoM/PYF5Pq2AFz8HEh0/B3zjPnRV6z4LHBY/3fYRP2kfhj5UKII/5uMTPx23gj6FMhA/CPUfP9SJZzvhgA4/BJQdPxjQtDr9lbo9RqoRP+2+i755kxA/Co3Zvh6qhT179Cy+2iULvz9wqj22Efy9BJQdPxjQtDr9lbo9zJL4Pj4wObwFmgA+zJL4Pj4wObwFmgA+BJQdPxjQtDr9lbo98yyvvh0lsj7oTTo+taINv1bZZz7TNoY9RqDjvpUAOz42Eu49XtnXvlmV1z4KTA4+RqDjvpUAOz42Eu49taINv1bZZz7TNoY9o9oKpPlxI9CQXZrRnDldrzfsFGybfFy2ivm1e6591L296cRsn3mQttnqtmzJepG2Tb9+vb9VldQcpfrUbTMM0D5/vvbPCVG/x1nN1QA13K5XQWC+klegql0mFKFHecuv+gfpg+2D+L3CEx9sX3yayTUUTWvUe83JWoClgKZ/f4Bagfp+on2tgFqApYCmf3+Ao3+ngFqAgYCjf6eAWoCBgP7/AQABgAGA/v8BAAGAAYD+9uIBM4Eihf7/AQABgAGA/v8BAAGAAYDOXNMhKytdz95cFSPTK+TPzlzKISYrWc/eXBUj0yvkzyKj5SF5K3ywHKMUI9IrGbAcoxQj0isZsCKj5SF5K3ywLqMxI+4rELC3ojgjGSsksLeiOCMZKySwLqMxI+4rELDJXDAj9Cvuz+VcuCKaK77PyVwwI/Qr7s/cXMMipyvCz6oEP4c8faO96hKdlBR7vrbYEsWV3Xm9tvsT0ZOcfFa2fSRmWN9vI9BpPdg7tVKv0yNTCSNWM+DOqHLIAU0MTsAuq3gjkDV/r/TBaT0aWJeq1evrky98rclP36BZ6HnZr6b9vHneg8m+I+r3lCB7IsqTKF5Y1XCm0ZUTnpOEfHa23RL3k7R7yLZkPj9EClrc1cEztUvrYznUGV/7JaInV9CkgGEJSAECuw6jmidfKj6v5/sYg+5+iME07NqTiHyhyWXq05RNexPKmhNdbIR8ickSFPpqbHu7yS0AloGVfua/zlmv374l8q8Cc9D/lgHguBCJbP4bAUzEnqbp3aopq9Dvw6u9+Fme1S7ZCqcucTTRd8y3ss5kAtRZ7GRsgHx0tsLr/GyHe7a2r2qUUcY5f4mxan5RhTmciaZqkVG2OYSJuGqNUbo5h4mKYDeWC5bOmoxg+ZUwlr+aYmAFlkOW3JqYYDOWBpbFmpZ0qWHZoWyAS3XOYGtdU4C6dAZhB6INgAl1kmF8oSmAll7Zj4uadpr3X2mP3ZlzmRhf9o6amuGZuF9tkJeZ5Zlgfo6HJIFehCSCs4ddfSyFBYGohpx+BIS9gMeJdX6hhSiv14LxWHugpbAUhClYZKKfsDSDRljPoRqviIWaWDKi0V6eYiOyZ487X7xjGbF4j35fNGNVsf+OKV6wZPiw5pCKnXN1Q18KkPidoHbrX26Q+Z1ldshfZZBAnfd2sWDpj1Ois7BWPhC9zaEasUU+4ry4kdZU2j3okbSR21TjPeSRmZIffEhsjYmHkil8XmyDiYeSKXxebIOJbpIrfHRsdIkcB6rwM2vwhycEceLTYhaRagSF4shi+ZAFB6fwSGvxh3jCHgCZWP6ocMIeAJBYA6l7wmQAoFj8qJQ9HABfWBqptAYJEuBt5I1UCCESim3njukFrhFQbjaNDwckE8hs0o6i5n4hCZWYnMHlkCLllFqd/Oc5I+mWZp0P5mghjpSinFUE1yXvXXCaHQU5I55f+JiuAv4ksV7QmAIF/SRoXjeapO3BFR2R4pN87WoWlJFVlBHzzx1GmTyXGfP+HWuZWJe94uf0AKG9gKHi8fQHoa6AoeLx9AehroCy4uX0CaG7gKAk7NxGQqqYXCQc3YZCdZjUJA3dD0KnmDMkvty5QqKYoW+6sTdsiqCHb7OxTWyGoJJvvbE5bI6gjW+nsVtsfKBO/2aAtX8ywB29TLw8VLvTQCdjpNh0Ia8AAZeAZ4CyvxaAxYDnf26AFoDFgOd/boBHgRN/zX2kgEeBE3/NfaSAWoH6fqJ9rYAifod/T4LugCJ+h39Pgu6A4n/BgByAboDif8GAHIBugP7/AQABgAGA/v8BAAGAAYDxA2wCdH1Dg/EDbAJ0fUOD/vbiATOBIoXm/xgAG4AZgP7/AQABgAGA/v8BAAGAAYDaf78JogDjug1B/EKrVzvWvL+9QvxUqKoMwstEB1jBqtz/JIABgBDA1wCDf1qAPMC9ALt+d39ewDs8dDysU4nTF64/Iis5cq+g/2J/PYDPv14AqoCyf8+/5D1hwXhTn6o0PSDCd1KUqpfC3cBdVxnW3v/qf/N/9L+M7sgXGpPYlCzvlBZlkumT4up9bPZ6eLaN/k6A3H4mwE/ZNaS1cBrQpNlkpBJxNNDlvfm8sFQb1Jii99HPM3vOAqN90xMz6s7ef/3uMBOtvkqB8/A6Ds2/sly20/M2ba9uQze82lp0qoVBM7y4WouqbiiRpFx13653G+eUQIIctZQDPIFTglq//BO1axl8tMlagKWApn9/gFqApYCmf3+AFoDFgOd/boAWgMWA539ugB4AMADPfyaAHgAwAM9/JoAeADAAz38mgB4AMADPfyaAR4ETf819pIBHgRN/zX2kgPEDbAJ0fUOD8QNsAnR9Q4Pdgm1+m3twgd2CbX6be3CB3YJtfpt7cIHdgm1+m3twgXUIXwMJfD2GdQhfAwl8PYZ1CF8DCXw9hnUIXwMJfD2GWoH6fqJ9rYBagfp+on2tgLQJzQFpfSGGtAnNAWl9IYa0Cc0BaX0hhrQJzQFpfSGGXH6nf/aB0YBcfqd/9oHRgFx+p3/2gdGAXH6nf/aB0YD+9uIBM4Eihf724gEzgSKFU3ySf/2D1YFTfJJ//YPVgVN8kn/9g9WBU3ySf/2D1YGR+HoCCILDhJH4egIIgsOEkfh6AgiCw4SR+HoCCILDhCJ+h39Pgu6AIn6Hf0+C7oBP/J4BhIGcgk/8ngGEgZyCT/yeAYSBnIJP/J4BhIGcguJ/wYAcgG6A4n/BgByAboDm/xgAG4AZgOb/GAAbgBmA5v8YABuAGYCjf6eAWoCBgKN/p4BagIGATetTlOd73Mkf/1qAen8swHXbU1yict2vUduCXG5y668Q3bFejXOvsPW/x0JHVamqW6RfKgAseq4hpKkpxSuprsJ/5AhkAHe72FvnKr8sBtLNWxcq7SzQ0T1BTkLnViDWryUIXFN0pNA5JkZblHPZ0GUBlX72f7LAHQBof4Z/DMA2E9CTFHygtthccCJ7K6DP2Fx1In8roc8ho3sipitLsCCjfiKmK0qw86I1I4UrGrDzojUjhSsasNNc+CLOK9jP0Fz4Is4r189SE+SUEHuOtm0BE319frLAPiS1WB5wENDpJN9XcW9F0DE9CDz0Uq3T0FH8IX4zKc4uU5whWjI1zouRLgDdE5K+mG88AQwQlb+MrP4iPDd4r5nD1jyPWnuqG8SsPitbiarb21dZ0nRIr7jbt1e1dfGu9Or2Y52CBbUs//d8M4KUv+7qeJSfe+zJ1hOta/p7o8nhAMmBFH+NvyAk4aVWcayv4iQTp0ZwZa88JFSm5HCfryA+w8KXUZOqTlRE3bEoS67RVeLd7Ce/rrWLjf+lAAy68qrb3M4q6tE1qnfcsSvF0SXC9MDiVgbWTdx6pP1zT9Du27ekoHNn0DL/TICAfyXAtP6kfw9/0r8T7LFsCHyVtjemC4wLXM2flKccg/dc/Zr2BqPwVWvzhwMHuvBYa+eHegSH4sJi9ZBnBHrivmIDkTj+mtTxpSScU/0w1KumkJwx/dvUYqYOnD/+I9QupoCco/K/HReZVpfC8vMdRZlulw==")
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ikshe"]
+size = Vector3(1, 0.90000004, 2)
+
+[sub_resource type="Curve3D" id="Curve3D_4dxg8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.8, 0, 0, 0, 0, 0, 0, -2.5, 0, 1.8),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dourk"]
+size = Vector3(1.8, 1, 1.8)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_dourk"]
+vertices = PackedVector3Array(-0.4000001, 0.475, -0.44999987, -0.4000001, 0.475, 1.0500002, 1.3499999, 0.475, 1.0500002, 1.3499999, 0.475, -0.44999987)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_radius = 0.0
+agent_max_climb = 0.0
+agent_max_slope = 0.02
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_km8ha"]
+vertices = PackedVector3Array(-1.9000001, 0.475, -0.75, -1.9000001, 0.475, 1.75, 1.5999999, 0.475, 1.75, 1.5999999, 0.475, -0.75)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_height = 0.5
+agent_radius = 0.0
+agent_max_climb = 0.0
+agent_max_slope = 0.02
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jwmjt"]
+sky_horizon_color = Color(0.46809766, 0.48534766, 0.5093477, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.46809766, 0.48534766, 0.5093477, 1)
+
+[sub_resource type="Sky" id="Sky_yelal"]
+sky_material = SubResource("ProceduralSkyMaterial_jwmjt")
+
+[sub_resource type="Environment" id="Environment_71rd0"]
+background_mode = 2
+sky = SubResource("Sky_yelal")
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_al25e"]
+size = Vector3(100, 0.1, 100)
+
+[node name="FactoryLevel" type="Node3D" unique_id=1694687099]
+
+[node name="InputHandler" type="Node3D" parent="." unique_id=1999813870 node_paths=PackedStringArray("camera", "return_area", "game_manager")]
+script = ExtResource("1_p2xlm")
+camera = NodePath("../Camera3D")
+return_area = NodePath("../GremlinSpawner/SpawnFloorArea")
+game_manager = NodePath("../GameManager")
+lift_height = 1.5
+
+[node name="GameManager" type="Node" parent="." unique_id=1075962719 node_paths=PackedStringArray("gremlin_spawner", "crane_manager", "crane", "conveyor_one", "pipe_controller", "conveyor_two", "shipping_cart")]
+unique_name_in_owner = true
+script = ExtResource("1_18cnu")
+gremlin_spawner = NodePath("../GremlinSpawner/NormalGremlinSpawner")
+crane_manager = NodePath("../CraneManager")
+crane = NodePath("../CraneManager/Crane")
+conveyor_one = NodePath("../Conveyor1")
+pipe_controller = NodePath("../Pipe")
+conveyor_two = NodePath("../Conveyor2")
+shipping_cart = NodePath("../TransportCart/ShippingCart")
+upgrades = Array[ExtResource("2_11hot")]([ExtResource("4_rjr6h"), ExtResource("5_d2wwq"), ExtResource("6_5vscl"), ExtResource("7_lbac8"), ExtResource("8_qhqxk"), ExtResource("9_3sdqb")])
+
+[node name="ProcessTimer" type="Node" parent="GameManager" unique_id=1502153003]
+unique_name_in_owner = true
+script = ExtResource("8_hndle")
+
+[node name="ResultScreenUI" type="Control" parent="GameManager" unique_id=1347131772 node_paths=PackedStringArray("game_manager")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_pi2rr")
+game_manager = NodePath("..")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameManager/ResultScreenUI" unique_id=1204039021]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ColourRect" type="ColorRect" parent="GameManager/ResultScreenUI/MarginContainer" unique_id=2013420393]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0.078431375, 0.09803922, 0.7058824)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GameManager/ResultScreenUI/MarginContainer" unique_id=584127542]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2" unique_id=61183007]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TotalSoldBoxesLabel" type="Label" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=2065602206]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_position = Vector2(5.45, -70)
+text = "Gremlins Sold: 99"
+label_settings = SubResource("LabelSettings_km8ha")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalMoneyLabel" type="Label" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=831333653]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_position = Vector2(5.45, -70)
+text = "Total Money Earned: 99"
+label_settings = SubResource("LabelSettings_km8ha")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LongestProcessTimeLabel" type="Label" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=1338244522]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_position = Vector2(5.45, -70)
+text = "Longest  Process Time: 99"
+label_settings = SubResource("LabelSettings_km8ha")
+horizontal_alignment = 1
+
+[node name="ShortestProcessTimeLabel" type="Label" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=1998149520]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_position = Vector2(5.45, -70)
+text = "Shortest  Process Time: 99"
+label_settings = SubResource("LabelSettings_km8ha")
+horizontal_alignment = 1
+
+[node name="AverageProcessTimeLabel" type="Label" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/VBoxContainer" unique_id=810117673]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_position = Vector2(5.45, -70)
+text = "Average Process Time: 99"
+label_settings = SubResource("LabelSettings_km8ha")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2" unique_id=986003567]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/HBoxContainer" unique_id=1142021351]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/HBoxContainer" unique_id=2058451183]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="GameUI" type="Control" parent="GameManager" unique_id=823084896 node_paths=PackedStringArray("camera")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_w6t46")
+camera = NodePath("../../Camera3D")
+
+[node name="VolumeSlider" type="HSlider" parent="GameManager/GameUI" unique_id=379083218]
+layout_mode = 0
+offset_left = 839.0
+offset_top = 1032.0
+offset_right = 1103.535
+offset_bottom = 1048.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+min_value = -20.0
+max_value = 0.0
+scrollable = false
+script = ExtResource("13_gd5yr")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameManager/GameUI" unique_id=1306507315]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TimeLabel" type="Label" parent="GameManager/GameUI/MarginContainer" unique_id=1125408919]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "99999"
+label_settings = SubResource("LabelSettings_km8ha")
+
+[node name="MoneyLabel" type="Label" parent="GameManager/GameUI/MarginContainer" unique_id=533985070]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+offset_transform_position = Vector2(5.45, -128.37)
+text = "Money:"
+label_settings = SubResource("LabelSettings_km8ha")
+
+[node name="GoRightButton" type="TextureButton" parent="GameManager/GameUI/MarginContainer" unique_id=1789815273]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 1
+texture_normal = ExtResource("4_53efp")
+
+[node name="GoLeftButton" type="TextureButton" parent="GameManager/GameUI/MarginContainer" unique_id=1623643348]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+texture_normal = ExtResource("4_53efp")
+flip_h = true
+
+[node name="RepairProgressBar" type="ProgressBar" parent="GameManager/GameUI" unique_id=1494363165]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = -46.0
+offset_right = 331.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 0.1254902, 1)
+theme_override_font_sizes/font_size = 64
+
+[node name="GameTimer" type="Timer" parent="GameManager" unique_id=1756943987]
+wait_time = 120.0
+one_shot = true
+
+[node name="BuySound" type="AudioStreamPlayer2D" parent="GameManager" unique_id=637424856]
+stream = ExtResource("5_ohciv")
+bus = &"SFX"
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="GameManager" unique_id=394007746]
+stream = ExtResource("15_kr2og")
+autoplay = true
+bus = &"Music"
+
+[node name="UpgradeShop" type="Node" parent="." unique_id=2112736053]
+
+[node name="UpgradeButtonCrane" parent="UpgradeShop" unique_id=1299432812 node_paths=PackedStringArray("game_manager") instance=ExtResource("5_1rswb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.400002, 0, -2)
+game_manager = NodePath("../../GameManager")
+
+[node name="UpgradeButtonConveyor" parent="UpgradeShop" unique_id=1456759186 node_paths=PackedStringArray("game_manager") instance=ExtResource("5_1rswb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.599999, 0, -2)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"conveyor_speed"
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonConveyor/M_button/Button_Top" parent_id_path=PackedInt32Array(1456759186, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "CONVEYOR
+SPEED +"
+font_size = 44
+
+[node name="UpgradeButtonSpawnRate" parent="UpgradeShop" unique_id=1545337255 node_paths=PackedStringArray("game_manager") instance=ExtResource("5_1rswb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.400001, 0, 0.20000002)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"gremlin_spawn_speed"
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonSpawnRate/M_button/Button_Top" parent_id_path=PackedInt32Array(1545337255, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "SPAWN
+RATE +"
+
+[node name="UpgradeButtonCartSpeed" parent="UpgradeShop" unique_id=16961217 node_paths=PackedStringArray("game_manager") instance=ExtResource("5_1rswb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.499999, 0, 0.20000002)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"cart_speed"
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonCartSpeed/M_button/Button_Top" parent_id_path=PackedInt32Array(16961217, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "CART
+SPEED +"
+
+[node name="UpgradeButtonExtraCrane" parent="UpgradeShop" unique_id=1016001926 node_paths=PackedStringArray("game_manager") instance=ExtResource("5_1rswb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.499999, 0, 2.2)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"extra_crane"
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonExtraCrane/M_button/Button_Top" parent_id_path=PackedInt32Array(1016001926, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "EXTRA
+CRANE +"
+
+[node name="DowngradeButtonCrane" parent="UpgradeShop" unique_id=894921219 node_paths=PackedStringArray("game_manager", "matching_upgrade_button") instance=ExtResource("11_fwbgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6, 0, -2)
+game_manager = NodePath("../../GameManager")
+matching_upgrade_button = NodePath("../UpgradeButtonCrane")
+
+[node name="DowngradeButtonConveyor" parent="UpgradeShop" unique_id=1306057589 node_paths=PackedStringArray("game_manager", "matching_upgrade_button") instance=ExtResource("11_fwbgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.799999, 0, -2)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"conveyor_speed"
+matching_upgrade_button = NodePath("../UpgradeButtonConveyor")
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonConveyor/M_button/Button_Top" parent_id_path=PackedInt32Array(1306057589, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "CONVEYOR
+SPEED -"
+font_size = 44
+
+[node name="DowngradeButtonSpawnRate" parent="UpgradeShop" unique_id=942898071 node_paths=PackedStringArray("game_manager", "matching_upgrade_button") instance=ExtResource("11_fwbgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6, 0, 0.20000002)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"gremlin_spawn_speed"
+matching_upgrade_button = NodePath("../UpgradeButtonSpawnRate")
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonSpawnRate/M_button/Button_Top" parent_id_path=PackedInt32Array(942898071, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "SPAWN
+RATE -"
+
+[node name="UpgradeButtonPipe" parent="UpgradeShop" unique_id=470074209 node_paths=PackedStringArray("game_manager") instance=ExtResource("5_1rswb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.400001, 0, 2.3000002)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"pipe_upgrade"
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonPipe/M_button/Button_Top" parent_id_path=PackedInt32Array(470074209, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "PIPE
+QUALITY +"
+font_size = 48
+
+[node name="DowngradeButtonPipe" parent="UpgradeShop" unique_id=2040477157 node_paths=PackedStringArray("game_manager", "matching_upgrade_button") instance=ExtResource("11_fwbgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6, 0, 2.3000002)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"pipe_upgrade"
+matching_upgrade_button = NodePath("../UpgradeButtonPipe")
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonPipe/M_button/Button_Top" parent_id_path=PackedInt32Array(2040477157, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "PIPE
+QUALITY -"
+font_size = 48
+
+[node name="DowngradeButtonCartSpeed" parent="UpgradeShop" unique_id=400677516 node_paths=PackedStringArray("game_manager", "matching_upgrade_button") instance=ExtResource("11_fwbgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.699999, 0, 0.20000002)
+game_manager = NodePath("../../GameManager")
+upgrade_id = &"cart_speed"
+matching_upgrade_button = NodePath("../UpgradeButtonCartSpeed")
+
+[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonCartSpeed/M_button/Button_Top" parent_id_path=PackedInt32Array(400677516, 1150936832, 1337641949) index="0" unique_id=873901234]
+text = "CART
+SPEED -"
+
+[node name="GremlinSpawner" type="Node" parent="." unique_id=1776126625]
+
+[node name="SpawnFloorArea" type="Area3D" parent="GremlinSpawner" unique_id=735364001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.03, -1.76)
+script = ExtResource("13_vx5f2")
+normal_gremlin_scene = ExtResource("15_5o75h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GremlinSpawner/SpawnFloorArea" unique_id=1438668132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_km8ha")
+
+[node name="NormalGremlinSpawner" type="Node3D" parent="GremlinSpawner" unique_id=1190106831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.448, -1.6)
+script = ExtResource("6_0bo8v")
+gremlin_scene = ExtResource("7_y0a4c")
+spawn_interval_min = 1.0
+
+[node name="SpawnPosition1" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=1889146425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -0.100000024)
+
+[node name="SpawnPosition2" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=1899970465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.3, -0.100000024)
+
+[node name="SpawnPosition3" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=2132302013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.3, -0.100000024)
+
+[node name="SpawnPosition4" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=480377390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.3, 0.7)
+
+[node name="SpawnPosition5" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=519012999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0.7)
+
+[node name="SpawnPosition6" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=1614678947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.3, 0.7)
+
+[node name="SpawnPosition7" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=790524128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.3, -0.9999999)
+
+[node name="SpawnPosition8" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=114288190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -0.9999999)
+
+[node name="SpawnPosition9" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=1611876424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.3, -0.9999999)
+
+[node name="CraneManager" type="Node" parent="." unique_id=1517948732 node_paths=PackedStringArray("extra_crane_1", "extra_crane_2")]
+script = ExtResource("20_fr5oa")
+extra_crane_1 = NodePath("ExtraCrane1")
+extra_crane_2 = NodePath("ExtraCrane2")
+
+[node name="ExtraCrane1WaitTarget" type="Marker3D" parent="CraneManager" unique_id=423222728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7, 2, -0.60000014)
+
+[node name="ExtraCrane1" type="Node3D" parent="CraneManager" unique_id=419221753 node_paths=PackedStringArray("wait_target", "drop_target", "pickup_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1796615, -2.136889)
+script = ExtResource("1_u6tae")
+wait_target = NodePath("../ExtraCrane1WaitTarget")
+drop_target = NodePath("../CraneDropTarget")
+pickup_target = NodePath("HoldingTarget")
+start_disabled = true
+
+[node name="Clawbase" type="CSGCylinder3D" parent="CraneManager/ExtraCrane1" unique_id=1248430118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012192488, 0.8, 0)
+radius = 0.2
+height = 0.6
+material = ExtResource("3_de004")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CraneManager/ExtraCrane1/Clawbase" unique_id=1465950261]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.30000004, -0.4, 0)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CraneManager/ExtraCrane1/Clawbase" unique_id=643058734]
+transform = Transform3D(0.9659258, 0.2588191, 0, -0.2588191, 0.9659258, 0, 0, 0, 1, 0.4000001, -0.9, 0)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CraneManager/ExtraCrane1/Clawbase" unique_id=100553494]
+transform = Transform3D(-0.70710677, 0.70710677, 8.742278e-08, 0.70710677, 0.70710677, 0, -6.181724e-08, 6.181724e-08, -1, -0.29999995, -0.4, 8.74228e-09)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CraneManager/ExtraCrane1/Clawbase" unique_id=1983849938]
+transform = Transform3D(-0.9659258, -0.2588191, 8.742278e-08, -0.2588191, 0.9659258, 0, -8.444392e-08, -2.2626685e-08, -1, -0.39999998, -0.9, -8.74228e-09)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="HoldingTarget" type="Marker3D" parent="CraneManager/ExtraCrane1" unique_id=1001818291]
+
+[node name="ExtraCrane2WaitTarget" type="Marker3D" parent="CraneManager" unique_id=527939173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1000001, 2, -0.60000014)
+
+[node name="ExtraCrane2" type="Node3D" parent="CraneManager" unique_id=495137969 node_paths=PackedStringArray("wait_target", "drop_target", "pickup_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1796615, -2.136889)
+script = ExtResource("1_u6tae")
+wait_target = NodePath("../ExtraCrane2WaitTarget")
+drop_target = NodePath("../CraneDropTarget")
+pickup_target = NodePath("HoldingTarget")
+start_disabled = true
+
+[node name="Clawbase" type="CSGCylinder3D" parent="CraneManager/ExtraCrane2" unique_id=291161583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012192488, 0.8, 0)
+radius = 0.2
+height = 0.6
+material = ExtResource("3_de004")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CraneManager/ExtraCrane2/Clawbase" unique_id=1677321567]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.30000004, -0.4, 0)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CraneManager/ExtraCrane2/Clawbase" unique_id=417316000]
+transform = Transform3D(0.9659258, 0.2588191, 0, -0.2588191, 0.9659258, 0, 0, 0, 1, 0.4000001, -0.9, 0)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CraneManager/ExtraCrane2/Clawbase" unique_id=2121357973]
+transform = Transform3D(-0.70710677, 0.70710677, 8.742278e-08, 0.70710677, 0.70710677, 0, -6.181724e-08, 6.181724e-08, -1, -0.29999995, -0.4, 8.74228e-09)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CraneManager/ExtraCrane2/Clawbase" unique_id=1773010223]
+transform = Transform3D(-0.9659258, -0.2588191, 8.742278e-08, -0.2588191, 0.9659258, 0, -8.444392e-08, -2.2626685e-08, -1, -0.39999998, -0.9, -8.74228e-09)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="HoldingTarget" type="Marker3D" parent="CraneManager/ExtraCrane2" unique_id=1258890576]
+
+[node name="CraneWaitTarget" type="Marker3D" parent="CraneManager" unique_id=1696246405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 2, -0.60000014)
+
+[node name="CraneDropTarget" type="Marker3D" parent="CraneManager" unique_id=1573922796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, -1)
+
+[node name="Crane" type="Node3D" parent="CraneManager" unique_id=95918539 node_paths=PackedStringArray("wait_target", "drop_target", "pickup_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.1796615, -2.136889)
+script = ExtResource("1_u6tae")
+wait_target = NodePath("../CraneWaitTarget")
+drop_target = NodePath("../CraneDropTarget")
+pickup_target = NodePath("HoldingTarget")
+
+[node name="Clawbase" type="CSGCylinder3D" parent="CraneManager/Crane" unique_id=1279651899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012192488, 0.8, 0)
+radius = 0.2
+height = 0.6
+material = ExtResource("3_de004")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CraneManager/Crane/Clawbase" unique_id=175814581]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, 0.30000004, -0.4, 0)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CraneManager/Crane/Clawbase" unique_id=2098554433]
+transform = Transform3D(0.9659258, 0.2588191, 0, -0.2588191, 0.9659258, 0, 0, 0, 1, 0.4000001, -0.9, 0)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CraneManager/Crane/Clawbase" unique_id=751173687]
+transform = Transform3D(-0.70710677, 0.70710677, 8.742278e-08, 0.70710677, 0.70710677, 0, -6.181724e-08, 6.181724e-08, -1, -0.29999995, -0.4, 8.74228e-09)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CraneManager/Crane/Clawbase" unique_id=1194067051]
+transform = Transform3D(-0.9659258, -0.2588191, 8.742278e-08, -0.2588191, 0.9659258, 0, -8.444392e-08, -2.2626685e-08, -1, -0.39999998, -0.9, -8.74228e-09)
+size = Vector3(0.1, 0.6, 0.2)
+material = ExtResource("2_71rd0")
+
+[node name="HoldingTarget" type="Marker3D" parent="CraneManager/Crane" unique_id=2035259545]
+
+[node name="Hopper" type="Node" parent="." unique_id=1188053070]
+
+[node name="GremlinHopper" parent="Hopper" unique_id=2088418184 instance=ExtResource("11_vg1nb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1)
+
+[node name="Conveyor1" type="Node" parent="." unique_id=1786216528 node_paths=PackedStringArray("conveyor_path", "pipe_escape_spawn", "pipe_controller")]
+script = ExtResource("11_eqh8l")
+conveyor_path = NodePath("ConveyorPath1")
+stunned_gremlin_scene = ExtResource("13_4dxg8")
+running_gremlin_scene = ExtResource("4_vx5f2")
+pipe_escape_spawn = NodePath("../Pipe/EscapeSpawnPoint")
+pipe_controller = NodePath("../Pipe")
+
+[node name="ConveyorPath1" type="Path3D" parent="Conveyor1" unique_id=2028924981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.4, -1.5)
+curve = SubResource("Curve3D_u6tae")
+
+[node name="Pipe" type="Node3D" parent="." unique_id=39900577 node_paths=PackedStringArray("conveyor_one", "camera", "fixing_detector", "repair_bar")]
+script = ExtResource("16_ltfle")
+conveyor_one = NodePath("../Conveyor1")
+camera = NodePath("../Camera3D")
+fixing_detector = NodePath("FixingDetector")
+repair_bar = NodePath("../GameManager/GameUI/RepairProgressBar")
+
+[node name="EscapeSpawnPoint" type="Marker3D" parent="Pipe" unique_id=526175572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0.83892417, -1.4)
+
+[node name="M_FactoryPipe" parent="Pipe" unique_id=1018528021 instance=ExtResource("16_eum01")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.95, 0.6037036, -2)
+
+[node name="Pipe_Broken" parent="Pipe/M_FactoryPipe" index="0" unique_id=1071487580]
+material_override = ExtResource("2_71rd0")
+
+[node name="Broken_Outline" type="MeshInstance3D" parent="Pipe/M_FactoryPipe/Pipe_Broken" index="0" unique_id=374317374]
+material_override = SubResource("ShaderMaterial_ionjj")
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_kr2og")
+
+[node name="Pipe_Intact" parent="Pipe/M_FactoryPipe" index="1" unique_id=1384416722]
+material_override = ExtResource("2_71rd0")
+
+[node name="FixingDetector" type="Area3D" parent="Pipe" unique_id=1940827944]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.95, 0.6037036, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe/FixingDetector" unique_id=1560502407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.01999998)
+shape = SubResource("BoxShape3D_ikshe")
+
+[node name="PipeBreakSound" type="AudioStreamPlayer3D" parent="Pipe" unique_id=169417086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.7351694, -2)
+stream = ExtResource("28_o8yas")
+max_distance = 75.0
+bus = &"SFX"
+
+[node name="Conveyor2" type="Node" parent="." unique_id=1573937684 node_paths=PackedStringArray("conveyor_path")]
+script = ExtResource("6_mhofs")
+conveyor_path = NodePath("ConveyorPath2")
+boxed_gremlin_scene = ExtResource("7_eg5jr")
+
+[node name="ConveyorPath2" type="Path3D" parent="Conveyor2" unique_id=1077047031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.4, 0.2)
+curve = SubResource("Curve3D_4dxg8")
+
+[node name="BoxCannon" type="Node" parent="." unique_id=2119273765]
+
+[node name="BoxCannonMesh" type="Node3D" parent="BoxCannon" unique_id=724142523]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.4, 0.4, 2)
+
+[node name="CSGBox3D" type="CSGCylinder3D" parent="BoxCannon/BoxCannonMesh" unique_id=920172050]
+transform = Transform3D(-4.371138e-08, 1, 8.742278e-08, -1, -4.371139e-08, 8.742278e-08, 8.742278e-08, -8.742278e-08, 1, 0.15154028, 0.4, 0)
+radius = 0.2
+height = 1.0
+material = ExtResource("2_71rd0")
+
+[node name="CannonBase" type="CSGBox3D" parent="BoxCannon/BoxCannonMesh" unique_id=1817046103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1500001, 0.20000002, 0.29999995)
+size = Vector3(0.7, 0.4, 0.2)
+material = ExtResource("3_de004")
+
+[node name="CannonBase2" type="CSGBox3D" parent="BoxCannon/BoxCannonMesh" unique_id=1378752261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1500001, 0.20000002, -0.3000002)
+size = Vector3(0.7, 0.4, 0.2)
+material = ExtResource("3_de004")
+
+[node name="BoxCannon2" type="Marker3D" parent="BoxCannon" unique_id=1098494496]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.7, 0.8, 2)
+script = ExtResource("20_xq1g1")
+physics_box_scene = ExtResource("21_17i2p")
+
+[node name="StorageContainer" type="Node" parent="." unique_id=2088069545]
+
+[node name="StorageCrate" type="Node3D" parent="StorageContainer" unique_id=394853349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 2)
+
+[node name="StorageArea" type="Area3D" parent="StorageContainer/StorageCrate" unique_id=1293774040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2351742e-08, 0.03, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StorageContainer/StorageCrate/StorageArea" unique_id=1025638302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_dourk")
+
+[node name="StorageCrateFloor" type="CSGBox3D" parent="StorageContainer/StorageCrate" unique_id=1254915824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2351742e-08, 0.03, 0)
+material_override = ExtResource("3_de004")
+use_collision = true
+size = Vector3(2, 0.05, 2)
+
+[node name="StorageCrateWall1" type="CSGBox3D" parent="StorageContainer/StorageCrate/StorageCrateFloor" unique_id=482676718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9499999, 0.17500001, 0)
+material_override = ExtResource("2_71rd0")
+use_collision = true
+size = Vector3(0.1, 0.3, 2)
+
+[node name="StorageCrateWall2" type="CSGBox3D" parent="StorageContainer/StorageCrate/StorageCrateFloor" unique_id=453039475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95000005, 0.17500001, 0)
+material_override = ExtResource("2_71rd0")
+use_collision = true
+size = Vector3(0.1, 0.3, 2)
+
+[node name="StorageCrateWall3" type="CSGBox3D" parent="StorageContainer/StorageCrate/StorageCrateFloor" unique_id=260200772]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.175, -0.95)
+material_override = ExtResource("2_71rd0")
+use_collision = true
+size = Vector3(0.1, 0.3, 1.8000001)
+
+[node name="StorageCrateWall4" type="CSGBox3D" parent="StorageContainer/StorageCrate/StorageCrateFloor" unique_id=1290221943]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.175, 0.95)
+material_override = ExtResource("2_71rd0")
+use_collision = true
+size = Vector3(0.1, 0.3, 1.8000001)
+
+[node name="TransportCart" type="Node" parent="." unique_id=1873074238]
+
+[node name="ShippingCartDestination" type="Marker3D" parent="TransportCart" unique_id=1309747492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 2)
+
+[node name="ShippingCartWaiting" type="Marker3D" parent="TransportCart" unique_id=1087307996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="ShippingCart" type="Node3D" parent="TransportCart" unique_id=131641038 node_paths=PackedStringArray("wait_target", "destination", "container_area", "loaded_box_visuals")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+script = ExtResource("11_53efp")
+wait_target = NodePath("../ShippingCartWaiting")
+destination = NodePath("../ShippingCartDestination")
+drive_speed = 1.0
+container_area = NodePath("../../StorageContainer/StorageCrate/StorageArea")
+loaded_box_visuals = [NodePath("GremlinboxVisual1"), NodePath("GremlinboxVisual2"), NodePath("GremlinboxVisual3"), NodePath("GremlinboxVisual4")]
+
+[node name="GremlinboxVisual1" parent="TransportCart/ShippingCart" unique_id=1149687186 instance=ExtResource("1_de004")]
+transform = Transform3D(0.11725351, 0, -0.99310213, 0, 1, 0, 0.99310213, 0, 0.11725351, 0.40341818, 0.24336207, 0.060073376)
+
+[node name="GremlinboxVisual2" parent="TransportCart/ShippingCart" unique_id=1145434389 instance=ExtResource("1_de004")]
+transform = Transform3D(-0.9817555, 0, 0.1901479, 0, 1, 0, -0.1901479, 0, -0.9817555, -0.31672907, 0.24336207, 0.01671195)
+
+[node name="GremlinboxVisual3" parent="TransportCart/ShippingCart" unique_id=1958609295 instance=ExtResource("1_de004")]
+transform = Transform3D(-0.9289155, 2.2626672e-08, -0.37029192, 1.0250629e-08, -1, -8.6819746e-08, -0.37029192, -8.444392e-08, 0.9289155, 0.40341818, 1.4690491, 0.060073376)
+
+[node name="GremlinboxVisual4" parent="TransportCart/ShippingCart" unique_id=1052396151 instance=ExtResource("1_de004")]
+transform = Transform3D(0.021840304, 0, 0.99976146, 0, 1, 0, -0.99976146, 0, 0.021840304, -0.31672907, 0.88704085, 0.01671195)
+
+[node name="Chassis" type="CSGBox3D" parent="TransportCart/ShippingCart" unique_id=183135408]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.19999999, 0)
+material_override = ExtResource("2_71rd0")
+size = Vector3(1, 0.1, 1.6)
+
+[node name="Chassis2" type="CSGBox3D" parent="TransportCart/ShippingCart" unique_id=1724298443]
+transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, -0.830616, 0.17966038, 0)
+material_override = ExtResource("2_71rd0")
+size = Vector3(0.8, 0.1, 0.8)
+
+[node name="Wheel" type="CSGCylinder3D" parent="TransportCart/ShippingCart" unique_id=695476296]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.5, 0.20000005, 0.60000014)
+radius = 0.2
+height = 0.19999999
+material = ExtResource("3_de004")
+
+[node name="Wheel2" type="CSGCylinder3D" parent="TransportCart/ShippingCart" unique_id=1053008720]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.5, 0.20000005, 0.60000014)
+radius = 0.2
+height = 0.19999999
+material = ExtResource("3_de004")
+
+[node name="Wheel3" type="CSGCylinder3D" parent="TransportCart/ShippingCart" unique_id=1022040708]
+transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, 0.5, 0.20000005, -0.6)
+radius = 0.2
+height = 0.19999999
+material = ExtResource("3_de004")
+
+[node name="Wheel4" type="CSGCylinder3D" parent="TransportCart/ShippingCart" unique_id=1966808359]
+transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, -0.5, 0.20000005, -0.6)
+radius = 0.2
+height = 0.19999999
+material = ExtResource("3_de004")
+
+[node name="PackingMachine" type="CSGBox3D" parent="." unique_id=357903959]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0.8999999, 0)
+material = ExtResource("2_71rd0")
+
+[node name="Stamper1" type="CSGBox3D" parent="PackingMachine" unique_id=1061215372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+size = Vector3(0.2, 1, 0.2)
+material = ExtResource("3_de004")
+
+[node name="Stamper2" type="CSGBox3D" parent="PackingMachine" unique_id=129909385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8999998, 0)
+size = Vector3(0.5, 0.2, 0.5)
+material = ExtResource("3_de004")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="PackingMachine" unique_id=451251770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21720809, 0)
+operation = 2
+size = Vector3(0.7, 0.7, 0.7)
+material = ExtResource("2_71rd0")
+
+[node name="SpawnFloorNav" type="NavigationRegion3D" parent="." unique_id=1915074126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.03, -1.76)
+navigation_mesh = SubResource("NavigationMesh_dourk")
+
+[node name="SpawnFloor" type="CSGBox3D" parent="SpawnFloorNav" unique_id=955693315]
+material_override = ExtResource("4_u6tae")
+use_collision = true
+size = Vector3(3, 0.05, 2.5)
+
+[node name="BoxArea" type="NavigationRegion3D" parent="." unique_id=761627653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5999999, 0.03, 1.74)
+navigation_mesh = SubResource("NavigationMesh_dourk")
+
+[node name="ContainerFloor" type="CSGBox3D" parent="BoxArea" unique_id=136091366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49999994, 0.025, 0.35000014)
+visible = false
+material_override = ExtResource("4_u6tae")
+use_collision = true
+size = Vector3(1.8000001, 0.1, 1.6)
+
+[node name="RunawayAreaNav" type="NavigationRegion3D" parent="." unique_id=1376942648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.03, -0.76)
+navigation_mesh = SubResource("NavigationMesh_km8ha")
+
+[node name="RunawayAreaMesh" type="CSGBox3D" parent="RunawayAreaNav" unique_id=530307406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000005, 0, 0.45000005)
+material_override = ExtResource("4_u6tae")
+size = Vector3(3.4, 0.05, 2.4)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1516711219]
+environment = SubResource("Environment_71rd0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1695920010]
+transform = Transform3D(-1, 8.709011e-08, -7.619402e-09, 0, 0.087155804, 0.9961947, 8.742278e-08, 0.9961947, -0.087155804, 0, 5, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=341290897]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 15, 15)
+current = true
+fov = 15.0
+
+[node name="BoxBreakArea" type="Area3D" parent="." unique_id=997447556]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.025993168, 0)
+script = ExtResource("22_w6t46")
+running_gremlin_scene = ExtResource("4_vx5f2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxBreakArea" unique_id=1548157095]
+shape = SubResource("BoxShape3D_al25e")
+
+[node name="LevelGeometry" type="Node3D" parent="." unique_id=1416359050]
+
+[node name="Floor" type="CSGBox3D" parent="LevelGeometry" unique_id=900124291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3895845, -0.052000955, -0.59974635)
+material_override = ExtResource("1_jwmjt")
+use_collision = true
+size = Vector3(24.300001, 0.1, 8)
+
+[node name="Conveyor" type="CSGBox3D" parent="LevelGeometry" unique_id=1851934672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0.2, -2)
+size = Vector3(5.5, 0.4, 1)
+material = ExtResource("3_de004")
+
+[node name="Conveyor2" type="CSGBox3D" parent="LevelGeometry" unique_id=1403870157]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0.2, 0.5)
+size = Vector3(4, 0.4, 1)
+material = ExtResource("3_de004")
+
+[node name="Conveyor3" type="CSGBox3D" parent="LevelGeometry" unique_id=650881070]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 0.2, 2)
+size = Vector3(2, 0.4, 1)
+material = ExtResource("3_de004")
+
+[connection signal="pressed" from="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/HBoxContainer/RetryButton" to="GameManager/ResultScreenUI" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="GameManager/ResultScreenUI/MarginContainer/VBoxContainer2/HBoxContainer/QuitButton" to="GameManager/ResultScreenUI" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="GameManager/GameUI/MarginContainer/GoRightButton" to="GameManager/GameUI" method="_on_go_right_button_pressed"]
+[connection signal="pressed" from="GameManager/GameUI/MarginContainer/GoLeftButton" to="GameManager/GameUI" method="_on_go_left_button_pressed"]
+[connection signal="timeout" from="GameManager/GameTimer" to="GameManager" method="_on_game_timer_timeout"]
+[connection signal="body_entered" from="BoxBreakArea" to="BoxBreakArea" method="_on_body_entered"]
+
+[editable path="UpgradeShop/UpgradeButtonConveyor"]
+[editable path="UpgradeShop/UpgradeButtonConveyor/M_button"]
+[editable path="UpgradeShop/UpgradeButtonSpawnRate"]
+[editable path="UpgradeShop/UpgradeButtonSpawnRate/M_button"]
+[editable path="UpgradeShop/UpgradeButtonCartSpeed"]
+[editable path="UpgradeShop/UpgradeButtonCartSpeed/M_button"]
+[editable path="UpgradeShop/UpgradeButtonExtraCrane"]
+[editable path="UpgradeShop/UpgradeButtonExtraCrane/M_button"]
+[editable path="UpgradeShop/DowngradeButtonConveyor"]
+[editable path="UpgradeShop/DowngradeButtonConveyor/M_button"]
+[editable path="UpgradeShop/DowngradeButtonSpawnRate"]
+[editable path="UpgradeShop/DowngradeButtonSpawnRate/M_button"]
+[editable path="UpgradeShop/UpgradeButtonPipe"]
+[editable path="UpgradeShop/UpgradeButtonPipe/M_button"]
+[editable path="UpgradeShop/DowngradeButtonPipe"]
+[editable path="UpgradeShop/DowngradeButtonPipe/M_button"]
+[editable path="UpgradeShop/DowngradeButtonCartSpeed"]
+[editable path="UpgradeShop/DowngradeButtonCartSpeed/M_button"]
+[editable path="Pipe/M_FactoryPipe"]

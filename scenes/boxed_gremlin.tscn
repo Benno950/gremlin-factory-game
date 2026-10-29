@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bm4f15bj3qs5u"]
+
+[ext_resource type="PackedScene" uid="uid://c1fqay1ombw7s" path="res://meshes/M_Gremlinbox.glb" id="1_0dprp"]
+[ext_resource type="Script" uid="uid://c678xcp3x3n4e" path="res://scripts/random_y_rotation.gd" id="2_m3vhq"]
+
+[node name="BoxedGremlin" type="PathFollow3D" unique_id=428252155]
+
+[node name="M_Gremlinbox" parent="." unique_id=1958609295 instance=ExtResource("1_0dprp")]
+script = ExtResource("2_m3vhq")

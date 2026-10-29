@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bmh2x1a3aualh"]
+
+[ext_resource type="Script" uid="uid://cwikp62513n45" path="res://scripts/upgrade_button.gd" id="1_0e4al"]
+[ext_resource type="PackedScene" uid="uid://x62xfj52vwa2" path="res://meshes/M_button.glb" id="1_isks0"]
+[ext_resource type="Material" uid="uid://dc03fwcd2ctvf" path="res://materials/development/development_gray.material" id="2_0e4al"]
+[ext_resource type="Material" uid="uid://dggihx8wnrewy" path="res://materials/development/development_green.material" id="3_o77qo"]
+
+[sub_resource type="Animation" id="Animation_0e4al"]
+resource_name = "pressed"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("M_button/Button_Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.17500001, 0), Vector3(0, 0.143, 0), Vector3(0, 0.14, 0), Vector3(0, 0.17500001, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("M_button/Button_Top:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1489813, 0.28998148),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 0.5, 1), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("M_button/Button_Top/UpgradeNameLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13301903, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9192674, 0.5804825, 3.85046e-07, 0.21568628), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_isks0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("M_button/Button_Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.17500001, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("M_button/Button_Top:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("M_button/Button_Top/UpgradeNameLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o77qo"]
+_data = {
+&"3d_button_pressed": SubResource("Animation_0e4al"),
+&"RESET": SubResource("Animation_isks0")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_km8ha"]
+size = Vector3(1.8000001, 0.5830078, 1.315918)
+
+[node name="UpgradeButton" type="Area3D" unique_id=1456759186]
+script = ExtResource("1_0e4al")
+
+[node name="M_button" parent="." unique_id=1150936832 instance=ExtResource("1_isks0")]
+
+[node name="Button_Base" parent="M_button" index="0" unique_id=1972976067]
+material_override = ExtResource("2_0e4al")
+
+[node name="Button_Top" parent="M_button" index="1" unique_id=1337641949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17500001, 0)
+material_override = ExtResource("3_o77qo")
+
+[node name="UpgradeNameLabel" type="Label3D" parent="M_button/Button_Top" index="0" unique_id=873901234]
+transform = Transform3D(1, 0, 0, 0, 0.21643965, 0.976296, 0, -0.976296, 0.21643965, 0, 0.19176853, 0)
+text = "CRANE
+SPEED +"
+font_size = 60
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=457975762]
+libraries/ = SubResource("AnimationLibrary_o77qo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1270527286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.940697e-08, 0.2915039, -0.0056152344)
+shape = SubResource("BoxShape3D_km8ha")
+
+[node name="UpgradeCostLabel" type="Label3D" parent="." unique_id=575591062]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.001, 0.78)
+text = "UPGRADE COST"
+font_size = 60
+
+[editable path="M_button"]

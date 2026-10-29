@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://ct1pygytwjvb7"]
+
+[ext_resource type="Script" uid="uid://blgn4v4j0ykaq" path="res://scripts/upgrade_data.gd" id="1_cwkrk"]
+
+[resource]
+script = ExtResource("1_cwkrk")
+upgrade_id = &"conveyor_speed"
+display_name = "Conveyor Speed"
+upgrade_amount = 0.7
+starting_price = 25
+price_multiplier = 1.6
+max_purchases = 100
+metadata/_custom_type_script = "uid://blgn4v4j0ykaq"

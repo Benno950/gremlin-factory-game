@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c1dvqavtufbun"]
+
+[ext_resource type="PackedScene" uid="uid://c1fqay1ombw7s" path="res://meshes/M_Gremlinbox.glb" id="1_61xmw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_km8ha"]
+size = Vector3(0.6, 0.615, 0.61)
+
+[node name="boxed_gremlin_physics" type="RigidBody3D" unique_id=1931993317 groups=["physics_gremlin_box"]]
+
+[node name="M_Gremlinbox" parent="." unique_id=1958609295 instance=ExtResource("1_61xmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1070527600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015133575, 0)
+shape = SubResource("BoxShape3D_km8ha")
