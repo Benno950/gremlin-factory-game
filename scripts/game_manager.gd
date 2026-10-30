@@ -167,27 +167,36 @@ func apply_upgrade_effect(upgrade_id: StringName, buying: bool) -> bool:
 	var upgrade: UpgradeData = get_upgrade(upgrade_id)
 	match upgrade_id:
 		&"crane":
-			if crane == null:
+			var amount: float = upgrade.upgrade_amount if buying else -upgrade.upgrade_amount
+
+			if crane_manager != null:
+				crane_manager.apply_speed_upgrade(amount)
+			elif crane != null:
+				# Fallback if you aren't using CraneManager.
+				crane.apply_speed_upgrade(amount)
+			else:
 				return false
 
-			var amount: float = upgrade.upgrade_amount if buying else -upgrade.upgrade_amount
-			crane.apply_speed_upgrade(amount)
 			return true
 
 		&"gremlin_spawn_speed":
-			if buying:
-				if gremlin_spawner.spawn_interval_max <= 2.0:
-					return false
+			if gremlin_spawner == null:
+				return false
 
-				gremlin_spawner.spawn_interval_max = maxf(
-					2.0,
-					gremlin_spawner.spawn_interval_max - 1.0
-				)
+			var amount: float = upgrade.upgrade_amount
+
+			if amount <= 0.0:
+				return false
+
+			if buying:
+				# Reject the purchase if it would go below 2 seconds.
+					if gremlin_spawner.spawn_interval_max - amount < 2.0:
+						return false
+
+					gremlin_spawner.spawn_interval_max -= amount
 			else:
-				gremlin_spawner.spawn_interval_max = minf(
-					10.0,
-					gremlin_spawner.spawn_interval_max + 1.0
-				)
+		# Restore the exact amount when refunding.
+				gremlin_spawner.spawn_interval_max += amount
 
 			return true
 
@@ -217,9 +226,18 @@ func apply_upgrade_effect(upgrade_id: StringName, buying: bool) -> bool:
 			return true
 
 		&"extra_crane":
-			var amount: float = upgrade.upgrade_amount
-			crane_manager.add_crane(amount)
-			return true
+			if crane_manager == null:
+				return false
+
+			var amount: int = int(round(upgrade.upgrade_amount))
+
+			if amount <= 0:
+				return false
+
+			if buying:
+				return crane_manager.add_crane(amount)
+			else:
+				return crane_manager.remove_crane(amount)
 
 	return false
 

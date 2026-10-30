@@ -137,12 +137,12 @@ unique_name_in_owner = true
 script = ExtResource("1_18cnu")
 gremlin_spawner = NodePath("../GremlinSpawner/NormalGremlinSpawner")
 crane_manager = NodePath("../CraneManager")
-crane = NodePath("../CraneManager/Crane")
+crane = NodePath("../CraneManager/ExtraCrane2")
 conveyor_one = NodePath("../Conveyor1")
 pipe_controller = NodePath("../Pipe")
 conveyor_two = NodePath("../Conveyor2")
 shipping_cart = NodePath("../TransportCart/ShippingCart")
-upgrades = Array[ExtResource("2_11hot")]([ExtResource("4_rjr6h"), ExtResource("5_d2wwq"), ExtResource("6_5vscl"), ExtResource("7_lbac8"), ExtResource("8_qhqxk"), ExtResource("9_3sdqb")])
+upgrades = Array[ExtResource("2_11hot")]([ExtResource("4_rjr6h"), ExtResource("8_qhqxk"), ExtResource("9_3sdqb"), ExtResource("6_5vscl"), ExtResource("7_lbac8"), ExtResource("5_d2wwq")])
 
 [node name="ProcessTimer" type="Node" parent="GameManager" unique_id=1502153003]
 unique_name_in_owner = true
@@ -355,7 +355,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.599999, 0, -2)
 game_manager = NodePath("../../GameManager")
 upgrade_id = &"conveyor_speed"
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonConveyor/M_button/Button_Top" parent_id_path=PackedInt32Array(1456759186, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonConveyor/M_button/Button_Top" parent_id_path=PackedInt32Array(1456759186, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "CONVEYOR
 SPEED +"
 font_size = 44
@@ -365,7 +365,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.400001, 0, 0.20000002)
 game_manager = NodePath("../../GameManager")
 upgrade_id = &"gremlin_spawn_speed"
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonSpawnRate/M_button/Button_Top" parent_id_path=PackedInt32Array(1545337255, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonSpawnRate/M_button/Button_Top" parent_id_path=PackedInt32Array(1545337255, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "SPAWN
 RATE +"
 
@@ -374,7 +374,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.499999, 0, 0.20000002)
 game_manager = NodePath("../../GameManager")
 upgrade_id = &"cart_speed"
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonCartSpeed/M_button/Button_Top" parent_id_path=PackedInt32Array(16961217, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonCartSpeed/M_button/Button_Top" parent_id_path=PackedInt32Array(16961217, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "CART
 SPEED +"
 
@@ -383,7 +383,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.499999, 0, 2.2)
 game_manager = NodePath("../../GameManager")
 upgrade_id = &"extra_crane"
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonExtraCrane/M_button/Button_Top" parent_id_path=PackedInt32Array(1016001926, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonExtraCrane/M_button/Button_Top" parent_id_path=PackedInt32Array(1016001926, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "EXTRA
 CRANE +"
 
@@ -398,7 +398,7 @@ game_manager = NodePath("../../GameManager")
 upgrade_id = &"conveyor_speed"
 matching_upgrade_button = NodePath("../UpgradeButtonConveyor")
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonConveyor/M_button/Button_Top" parent_id_path=PackedInt32Array(1306057589, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonConveyor/M_button/Button_Top" parent_id_path=PackedInt32Array(1306057589, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "CONVEYOR
 SPEED -"
 font_size = 44
@@ -409,7 +409,7 @@ game_manager = NodePath("../../GameManager")
 upgrade_id = &"gremlin_spawn_speed"
 matching_upgrade_button = NodePath("../UpgradeButtonSpawnRate")
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonSpawnRate/M_button/Button_Top" parent_id_path=PackedInt32Array(942898071, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonSpawnRate/M_button/Button_Top" parent_id_path=PackedInt32Array(942898071, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "SPAWN
 RATE -"
 
@@ -418,7 +418,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.400001, 0, 2.3000002)
 game_manager = NodePath("../../GameManager")
 upgrade_id = &"pipe_upgrade"
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonPipe/M_button/Button_Top" parent_id_path=PackedInt32Array(470074209, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/UpgradeButtonPipe/M_button/Button_Top" parent_id_path=PackedInt32Array(470074209, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "PIPE
 QUALITY +"
 font_size = 48
@@ -429,7 +429,7 @@ game_manager = NodePath("../../GameManager")
 upgrade_id = &"pipe_upgrade"
 matching_upgrade_button = NodePath("../UpgradeButtonPipe")
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonPipe/M_button/Button_Top" parent_id_path=PackedInt32Array(2040477157, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonPipe/M_button/Button_Top" parent_id_path=PackedInt32Array(2040477157, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "PIPE
 QUALITY -"
 font_size = 48
@@ -440,7 +440,7 @@ game_manager = NodePath("../../GameManager")
 upgrade_id = &"cart_speed"
 matching_upgrade_button = NodePath("../UpgradeButtonCartSpeed")
 
-[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonCartSpeed/M_button/Button_Top" parent_id_path=PackedInt32Array(400677516, 1150936832, 1337641949) index="0" unique_id=873901234]
+[node name="UpgradeNameLabel" parent="UpgradeShop/DowngradeButtonCartSpeed/M_button/Button_Top" parent_id_path=PackedInt32Array(400677516, 1150936832, 1634870449) index="0" unique_id=873901234]
 text = "CART
 SPEED -"
 
@@ -488,10 +488,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -0.9999999)
 [node name="SpawnPosition9" type="Marker3D" parent="GremlinSpawner/NormalGremlinSpawner" unique_id=1611876424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.3, -0.9999999)
 
-[node name="CraneManager" type="Node" parent="." unique_id=1517948732 node_paths=PackedStringArray("extra_crane_1", "extra_crane_2")]
+[node name="CraneManager" type="Node" parent="." unique_id=1517948732 node_paths=PackedStringArray("cranes")]
 script = ExtResource("20_fr5oa")
-extra_crane_1 = NodePath("ExtraCrane1")
-extra_crane_2 = NodePath("ExtraCrane2")
+cranes = [NodePath("ExtraCrane1"), NodePath("ExtraCrane2"), NodePath("Crane")]
 
 [node name="ExtraCrane1WaitTarget" type="Marker3D" parent="CraneManager" unique_id=423222728]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7, 2, -0.60000014)
@@ -642,7 +641,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0.83892417, -1.4)
 [node name="M_FactoryPipe" parent="Pipe" unique_id=1018528021 instance=ExtResource("16_eum01")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.95, 0.6037036, -2)
 
-[node name="Pipe_Broken" parent="Pipe/M_FactoryPipe" index="0" unique_id=1071487580]
+[node name="Pipe_Broken" parent="Pipe/M_FactoryPipe" index="0" unique_id=2132591318]
 material_override = ExtResource("2_71rd0")
 
 [node name="Broken_Outline" type="MeshInstance3D" parent="Pipe/M_FactoryPipe/Pipe_Broken" index="0" unique_id=374317374]
@@ -650,7 +649,7 @@ material_override = SubResource("ShaderMaterial_ionjj")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_kr2og")
 
-[node name="Pipe_Intact" parent="Pipe/M_FactoryPipe" index="1" unique_id=1384416722]
+[node name="Pipe_Intact" parent="Pipe/M_FactoryPipe" index="1" unique_id=1668861514]
 material_override = ExtResource("2_71rd0")
 
 [node name="FixingDetector" type="Area3D" parent="Pipe" unique_id=1940827944]
@@ -811,8 +810,8 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0
 material = ExtResource("2_71rd0")
 
 [node name="Stamper1" type="CSGBox3D" parent="PackingMachine" unique_id=1061215372]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-size = Vector3(0.2, 1, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3261108, 0)
+size = Vector3(0.2, 0.6522217, 0.2)
 material = ExtResource("3_de004")
 
 [node name="Stamper2" type="CSGBox3D" parent="PackingMachine" unique_id=129909385]

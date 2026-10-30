@@ -53,6 +53,11 @@ func _physics_process(_delta: float) -> void:
 	var target := find_normal_gremlin()
 
 	if target != null:
+		# Reserve the Gremlin immediately so another crane
+		# cannot select it during this crane's movement.
+		target.is_targeted = true
+		target.velocity = Vector3.ZERO
+
 		busy = true
 		handle_gremlin(target)
 
@@ -104,8 +109,7 @@ func handle_gremlin(gremlin: CharacterBody3D) -> void:
 
 	# 2. Freeze the Gremlin before lowering the claw.
 	# This stops it wandering away during the descent.
-	gremlin.is_targeted = true
-	gremlin.velocity = Vector3.ZERO
+	
 
 	# Optional pause for a future look-up animation.
 	if look_up_delay > 0.0:

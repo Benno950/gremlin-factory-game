@@ -7,6 +7,5 @@ script = ExtResource("1_dgnsu")
 upgrade_id = &"gremlin_spawn_speed"
 display_name = "Spawn Speed"
 starting_price = 1
-price_multiplier = 1.2
-max_purchases = 8
+max_purchases = 20
 metadata/_custom_type_script = "uid://blgn4v4j0ykaq"
